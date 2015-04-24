@@ -1,6 +1,5 @@
 package pucrs.alpro3.arvores;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public class BinarySearchTree {
 
