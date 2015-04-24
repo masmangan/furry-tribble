@@ -4,7 +4,7 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public class BinarySearchTree {
 
-	class Node {
+	private class Node {
 		int value;
 		Node left, right;
 
@@ -53,7 +53,20 @@ public class BinarySearchTree {
 	}
 
 	public boolean contains(int v) {
-		throw new NotImplementedException();
+		return contains(root, v);
+	}
+
+	private boolean contains(Node node, int v) {
+		if (node == null)
+			return false;
+
+		if (v < node.value)
+			return contains(node.left, v);
+		
+		if (v > node.value)
+			return contains(node.right, v);
+
+		return true;
 	}
 
 	@Override
