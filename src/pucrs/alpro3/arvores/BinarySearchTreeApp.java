@@ -18,5 +18,6 @@ public class BinarySearchTreeApp {
 		System.out.println(bst);
 		System.out.println(bst.contains(10));
 		System.out.println(bst.contains(11));
-	}
+		System.out.println(bst.getLevelForValue(10));
+		System.out.println(bst.getLevelForValue(30));	}
 }

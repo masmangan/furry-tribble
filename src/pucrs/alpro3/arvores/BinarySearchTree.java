@@ -80,4 +80,46 @@ public class BinarySearchTree {
 		return "*";
 	}
 
+	public int getLevelForValue(int value) {
+		return getLevelForValue(root, value, 0);
+	}
+
+	private int getLevelForValue(Node node, int value, int level) {
+		if (node == null)
+			throw new IllegalArgumentException("Valor não encontrado: " + value);
+		
+		if (value < node.value)
+			return getLevelForValue(node.left, value, level + 1);
+		
+		if (value > node.value)
+			return getLevelForValue(node.right, value, level + 1);
+		
+		return level;
+	}
+
+	public int getHeightForValue(int value) {
+		return getHeightForValue(root, value);
+	}
+
+	private int getHeightForValue(Node node, int value) {
+		if (node == null)
+			throw new IllegalArgumentException("Valor não encontrado: " + value);
+
+		if (value < node.value)
+			return getHeightForValue(node.left, value);
+		
+		if (value > node.value)
+			return getHeightForValue(node.right, value);
+
+		return h(node);
+	}
+
+	private int h(Node node) {
+		if (node == null)
+			return -1;
+		
+		return 1 + Math.max(h(node.left), h(node.right));
+	}
+	
+	
 }
