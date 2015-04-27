@@ -1,7 +1,16 @@
 package pucrs.alpro3.arvores;
 
+/**
+ * 
+ * @author marco.mangan@pucrs.br
+ *
+ */
 public class BinarySearchTreeApp {
 
+	/**
+	 * 
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		BinarySearchTree bst = new BinarySearchTree();
 		

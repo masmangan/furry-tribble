@@ -23,19 +23,34 @@ public class BinarySearchTree {
 
 	private Node root;
 
+	/**
+	 * 
+	 */
 	public BinarySearchTree() {
 		root = null;
 		count = 0;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public boolean isEmpty() {
 		return root == null;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public int size() {
 		return count;
 	}
 
+	/**
+	 * 
+	 * @param v
+	 */
 	public void add(int v) {
 		root = add(root, v);
 	}
@@ -55,6 +70,11 @@ public class BinarySearchTree {
 		return node;
 	}
 
+	/**
+	 * 
+	 * @param v
+	 * @return
+	 */
 	public boolean contains(int v) {
 		return contains(root, v);
 	}
@@ -84,6 +104,11 @@ public class BinarySearchTree {
 		return "*";
 	}
 
+	/**
+	 * 
+	 * @param value
+	 * @return
+	 */
 	public int getLevelForValue(int value) {
 		return getLevelForValue(root, value, 0);
 	}
@@ -101,6 +126,11 @@ public class BinarySearchTree {
 		return level;
 	}
 
+	/**
+	 * 
+	 * @param value
+	 * @return
+	 */
 	public int getHeightForValue(int value) {
 		return getHeightForValue(root, value);
 	}
