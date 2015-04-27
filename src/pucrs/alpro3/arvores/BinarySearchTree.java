@@ -3,6 +3,8 @@ package pucrs.alpro3.arvores;
 /**
  * 
  * @author marco.mangan@pucrs.br
+ * @author augusto.faria@acad.pucrs.br
+ * @author filipe.kalicki@acad.pucrs.br
  *
  */
 public class BinarySearchTree {
@@ -85,7 +87,7 @@ public class BinarySearchTree {
 
 		if (v < node.value)
 			return contains(node.left, v);
-		
+
 		if (v > node.value)
 			return contains(node.right, v);
 
@@ -116,13 +118,13 @@ public class BinarySearchTree {
 	private int getLevelForValue(Node node, int value, int level) {
 		if (node == null)
 			throw new IllegalArgumentException("Valor não encontrado: " + value);
-		
+
 		if (value < node.value)
 			return getLevelForValue(node.left, value, level + 1);
-		
+
 		if (value > node.value)
 			return getLevelForValue(node.right, value, level + 1);
-		
+
 		return level;
 	}
 
@@ -141,7 +143,7 @@ public class BinarySearchTree {
 
 		if (value < node.value)
 			return getHeightForValue(node.left, value);
-		
+
 		if (value > node.value)
 			return getHeightForValue(node.right, value);
 
@@ -151,28 +153,57 @@ public class BinarySearchTree {
 	private int h(Node node) {
 		if (node == null)
 			return -1;
-		
+
 		return 1 + Math.max(h(node.left), h(node.right));
 	}
 
-	public int[] getChildren(int i) {
-		// TODO Auto-generated method stub
-		return new int[0];
+	public int[] getChildren(int value) {
+		return getChildren(root, value);
+	}
+
+	private int[] getChildren(Node node, int value) {
+		if (node == null)
+			throw new IllegalArgumentException("Valor não encontrado: " + value);
+
+		if (value < node.value)
+			return getChildren(node.left, value);
+
+		if (value > node.value)
+			return getChildren(node.right, value);
+		int i = 0;
+		if (node.left != null)
+			i++;
+		if (node.right != null)
+			i++;
+		int[] retorno = new int[i];
+		i = 0;
+		if (node.left != null) 
+			retorno[i++] = node.left.value;
+		if (node.right != null)
+			retorno[i] = node.right.value;
+		return retorno;
+	}
+
+	public int getParent(int i) {
+		if (!this.contains(i))
+			throw new IllegalArgumentException("Valor não encontrado: " + i);
+		
+		if (root.value == i)
+			throw new IllegalArgumentException("Não tem pai: " + i);
+		
+		return getParentValue(root, i);
 	}
 	
-	
+	private int getParentValue(Node node, int value) {
+		if (node == null)
+			throw new IllegalArgumentException("Valor não encontrado: " + value);
+
+		if (value < node.value && node.left.value != value)
+			return getParentValue(node.left, value);
+
+		if (value > node.value && node.right.value != value)
+			return getParentValue(node.right, value);
+
+		return node.value;
+	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
