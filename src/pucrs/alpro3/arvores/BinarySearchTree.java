@@ -2,7 +2,7 @@ package pucrs.alpro3.arvores;
 
 /**
  * 
- * @author 10067320
+ * @author marco.mangan@pucrs.br
  *
  */
 public class BinarySearchTree {
