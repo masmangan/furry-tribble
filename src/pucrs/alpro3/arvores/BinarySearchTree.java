@@ -1,6 +1,10 @@
 package pucrs.alpro3.arvores;
 
-
+/**
+ * 
+ * @author 10067320
+ *
+ */
 public class BinarySearchTree {
 
 	private class Node {
