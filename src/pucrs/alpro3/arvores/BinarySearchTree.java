@@ -154,6 +154,25 @@ public class BinarySearchTree {
 		
 		return 1 + Math.max(h(node.left), h(node.right));
 	}
+
+	public int[] getChildren(int i) {
+		// TODO Auto-generated method stub
+		return new int[0];
+	}
 	
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
