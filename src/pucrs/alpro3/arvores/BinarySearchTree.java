@@ -195,8 +195,8 @@ public class BinarySearchTree {
 	}
 	
 	private int getParentValue(Node node, int value) {
-		if (node == null)
-			throw new IllegalArgumentException("Valor não encontrado: " + value);
+		//if (node == null)
+		//	throw new IllegalArgumentException("Valor não encontrado: " + value);
 
 		if (value < node.value && node.left.value != value)
 			return getParentValue(node.left, value);
@@ -206,4 +206,33 @@ public class BinarySearchTree {
 
 		return node.value;
 	}
+
+
+	public int getParent2(int i) {
+//		if (!this.contains(i))
+//			throw new IllegalArgumentException("Valor não encontrado: " + i);
+//		
+//		if (root.value == i)
+//			throw new IllegalArgumentException("Não tem pai: " + i);
+		
+		return getParentValue2(root, i, null);
+	}
+	
+	private int getParentValue2(Node node, int value, Node parent) {
+		if (node == null)
+			throw new IllegalArgumentException("Valor não encontrado: " + value);
+
+		if (value < node.value)
+			return getParentValue2(node.left, value, node);
+
+		if (value > node.value)
+			return getParentValue2(node.right, value, node);
+
+		if (parent == null)
+			throw new IllegalArgumentException("Não tem pai: " + value);
+		
+		return parent.value;
+	}
+	
+	
 }
