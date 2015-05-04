@@ -12,7 +12,7 @@ public class BinarySearchTreeApp {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		BinarySearchTree bst = new BinarySearchTree();
+		AVLTree bst = new AVLTree();
 		
 		System.out.println(bst.size());
 		System.out.println(bst);
