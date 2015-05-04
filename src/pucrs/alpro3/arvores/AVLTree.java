@@ -10,11 +10,13 @@ public class AVLTree {
 
 	private class Node {
 		int value;
+		int height;
 		Node left, right;
 
 		public Node(int value) {
 			this.value = value;
 			left = right = null;
+			height = 0;
 			count++;
 		}
 
@@ -68,6 +70,20 @@ public class AVLTree {
 		else
 			throw new IllegalArgumentException("A chave está cadastrada:" + v);
 
+		///
+		
+		int hl, hr;
+		hl = hr = -1;
+		
+		if (node.left != null)
+			hl = node.left.height;
+		if (node.right != null)
+			hr = node.right.height;
+		
+		node.height = 1 + Math.max(hl, hr);
+		
+		///
+		
 		return node;
 	}
 
@@ -100,7 +116,7 @@ public class AVLTree {
 
 	private String toString(Node node) {
 		if (node != null)
-			return node.value + " " + toString(node.left) + " "
+			return node.value + " (" + node.height + ") "+ toString(node.left) + " "
 					+ toString(node.right);
 		return "*";
 	}
