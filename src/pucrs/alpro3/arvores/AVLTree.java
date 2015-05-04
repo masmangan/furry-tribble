@@ -63,28 +63,39 @@ public class AVLTree {
 		if (node == null)
 			return new Node(v);
 
-		if (v < node.value)
+		if (v < node.value) {
 			node.left = add(node.left, v);
-		else if (v > node.value)
+			int delta = h(node.left) - h(node.right);
+			if (delta == 2) {
+				//rotacao
+				System.out.println("Rotação com filho da esquerda!");
+				System.out.printf("Node: %d, node left: %d, value: %d\n",
+						node.value, node.left.value, v);
+				// o nodo esquerdo de dez aponta para o direito de cinco
+
+				// o nodo direito de cinco passa a apontar para dez
+				
+				
+				// retorna cinco como nodo raiz
+			}
+			
+			
+		} else if (v > node.value)
 			node.right = add(node.right, v);
 		else
 			throw new IllegalArgumentException("A chave está cadastrada:" + v);
 
 		///
-		
-		int hl, hr;
-		hl = hr = -1;
-		
-		if (node.left != null)
-			hl = node.left.height;
-		if (node.right != null)
-			hr = node.right.height;
-		
-		node.height = 1 + Math.max(hl, hr);
+				
+		node.height = 1 + Math.max(h(node.left), h(node.right));
 		
 		///
 		
 		return node;
+	}
+
+	private int h(Node node) {
+		return node == null? - 1 : node.height;
 	}
 
 	/**
@@ -116,7 +127,7 @@ public class AVLTree {
 
 	private String toString(Node node) {
 		if (node != null)
-			return node.value + " (" + node.height + ") "+ toString(node.left) + " "
+			return node.value + " (" + node.height + ")[ " + (h(node.left) - h(node.right)) + "] "+ toString(node.left) + " "
 					+ toString(node.right);
 		return "*";
 	}
