@@ -8,7 +8,7 @@ public class BinarySearchTreeTest {
 
 	@Test
 	public void testNoChildren() {
-		AVLTree bst = new AVLTree();
+		BinarySearchTree bst = new BinarySearchTree();
 		bst.add(10);
 		int[] actual = bst .getChildren(10);
 		assertEquals(0, actual.length);
@@ -16,7 +16,7 @@ public class BinarySearchTreeTest {
 
 	@Test
 	public void testOneChild() {
-		AVLTree bst = new AVLTree();
+		BinarySearchTree bst = new BinarySearchTree();
 		bst.add(20);
 		bst.add(10);
 		int[] actual = bst .getChildren(20);
@@ -26,7 +26,7 @@ public class BinarySearchTreeTest {
 	
 	@Test
 	public void testTwoChildren() {
-		AVLTree bst = new AVLTree();
+		BinarySearchTree bst = new BinarySearchTree();
 		bst.add(20);
 		bst.add(10);
 		bst.add(30);
@@ -38,14 +38,14 @@ public class BinarySearchTreeTest {
 	
 	@Test(expected=IllegalArgumentException.class)
 	public void testNodeNotFound() {
-		AVLTree bst = new AVLTree();
+		BinarySearchTree bst = new BinarySearchTree();
 		bst.add(10);
 		bst .getChildren(20);
 	}	
 	
 	@Test(expected=IllegalArgumentException.class)
 	public void testNoParent() {
-		AVLTree bst = new AVLTree();
+		BinarySearchTree bst = new BinarySearchTree();
 		bst.add(10);
 		int actual = bst .getParent(10);
 		//assertEquals(0, actual.length);
@@ -53,7 +53,7 @@ public class BinarySearchTreeTest {
 
 	@Test
 	public void testOneParent() {
-		AVLTree bst = new AVLTree();
+		BinarySearchTree bst = new BinarySearchTree();
 		bst.add(20);
 		bst.add(10);
 		int actual = bst .getParent(10);
@@ -63,7 +63,7 @@ public class BinarySearchTreeTest {
 	
 	@Test
 	public void testTwoParent() {
-		AVLTree bst = new AVLTree();
+		BinarySearchTree bst = new BinarySearchTree();
 		bst.add(20);
 		bst.add(10);
 		bst.add(30);
@@ -75,7 +75,7 @@ public class BinarySearchTreeTest {
 	
 	@Test(expected=IllegalArgumentException.class)
 	public void testNodeNotFoundParent() {
-		AVLTree bst = new AVLTree();
+		BinarySearchTree bst = new BinarySearchTree();
 		bst.add(10);
 		bst .getParent(20);
 	}	
