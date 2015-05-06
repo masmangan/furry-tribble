@@ -71,12 +71,14 @@ public class AVLTree {
 				System.out.println("Rotação com filho da esquerda!");
 				System.out.printf("Node: %d, node left: %d, value: %d\n",
 						node.value, node.left.value, v);
+				// copia
+				Node a = node.left; 
 				// o nodo esquerdo de dez aponta para o direito de cinco
-
+				node.left = a.right; 
 				// o nodo direito de cinco passa a apontar para dez
-				
-				
+				a.right = node;
 				// retorna cinco como nodo raiz
+				node = a;
 			}
 			
 			
