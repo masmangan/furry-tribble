@@ -81,13 +81,13 @@ public class AVLTree {
 				node = a;
 			}
 			
-			// TODO: completar rotação dupla
+			// TODO: completar rotaÃ§Ã£o dupla
 			
 			
 		} else if (v > node.value) {
 			node.right = add(node.right, v);
-			// TODO: completar rotação simples
-			// TODO: completar rotação dupla
+			// TODO: completar rotaÃ§Ã£o simples
+			// TODO: completar rotaÃ§Ã£o dupla
 			
 		}
 		else
