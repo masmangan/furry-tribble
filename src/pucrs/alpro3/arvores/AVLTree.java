@@ -81,9 +81,15 @@ public class AVLTree {
 				node = a;
 			}
 			
+			// TODO: completar rotação dupla
 			
-		} else if (v > node.value)
+			
+		} else if (v > node.value) {
 			node.right = add(node.right, v);
+			// TODO: completar rotação simples
+			// TODO: completar rotação dupla
+			
+		}
 		else
 			throw new IllegalArgumentException("A chave estÃ¡ cadastrada:" + v);
 
